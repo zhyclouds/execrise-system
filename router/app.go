@@ -1,9 +1,16 @@
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	_ "execrise-system/docs"
+	"github.com/gin-gonic/gin"
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
+)
 
 func Router() *gin.Engine {
 	r := gin.Default()
+
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	// TODO: 配置路由规则
 
