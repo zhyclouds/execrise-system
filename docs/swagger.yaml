@@ -1,4 +1,27 @@
 info:
   contact: {}
-paths: {}
+paths:
+  /problem-list:
+    get:
+      parameters:
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: size
+        in: query
+        name: size
+        type: integer
+      - description: keyword
+        in: query
+        name: keyword
+        type: string
+      responses:
+        "200":
+          description: '{"code":200,"data":""}'
+          schema:
+            type: string
+      summary: 获取题目列表
+      tags:
+      - 公共方法
 swagger: "2.0"

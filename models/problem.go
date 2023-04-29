@@ -15,3 +15,7 @@ type Problem struct {
 func (p *Problem) TableName() string {
 	return "problem"
 }
+
+func GetProblemList(keyword string) *gorm.DB {
+	return DB.Model(&Problem{}).Where("title like ? or content like ?", "%"+keyword+"%", "%"+keyword+"%")
+}
