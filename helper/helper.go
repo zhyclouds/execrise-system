@@ -4,6 +4,8 @@ import (
 	"crypto/md5"
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
+	"github.com/jordan-wright/email"
+	"net/smtp"
 )
 
 type UserClaims struct {
@@ -50,4 +52,19 @@ func AnalyseToken(tokenString string) (*UserClaims, error) {
 		return nil, fmt.Errorf("AnalyseToken Error: %v", claims.Valid)
 	}
 	return userClaim, nil
+}
+
+// SendCode
+// 发送验证码
+func SendCode(toUserEmail, code string) error {
+	e := email.NewEmail()
+	e.From = "Zhang HaoYu <310123665@qq.com>"
+	e.To = []string{toUserEmail}
+	e.Subject = "验证码"
+	e.HTML = []byte("您的验证码是<b>" + code + "</b>")
+	err := e.Send("smtp.qq.com:587", smtp.PlainAuth("", "310123665@qq.com", "vplxaeoiawtpbjda", "smtp.qq.com"))
+	if err != nil {
+		return err
+	}
+	return nil
 }
