@@ -22,7 +22,6 @@ func GetUserDetail(c *gin.Context) {
 		return
 	}
 
-	// TODO: 从数据库中获取用户信息
 	data := new(models.UserBasic)
 	err := models.DB.Omit("password").Where("identity = ?", identity).First(data).Error
 	if err != nil {
