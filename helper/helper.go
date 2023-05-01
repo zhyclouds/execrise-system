@@ -5,7 +5,11 @@ import (
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/jordan-wright/email"
+	uuid "github.com/satori/go.uuid"
+	"math/rand"
 	"net/smtp"
+	"strconv"
+	"time"
 )
 
 type UserClaims struct {
@@ -67,4 +71,21 @@ func SendCode(toUserEmail, code string) error {
 		return err
 	}
 	return nil
+}
+
+// GetUUid
+// 获取 uuid
+func GetUUid() string {
+	return uuid.NewV4().String()
+}
+
+// GetRand
+// 生成验证码
+func GetRand() string {
+	rand.Seed(time.Now().UnixNano())
+	s := ""
+	for i := 0; i < 6; i++ {
+		s += strconv.Itoa(rand.Intn(10))
+	}
+	return s
 }
