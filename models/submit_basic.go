@@ -18,7 +18,9 @@ func (s *SubmitBasic) TableName() string {
 }
 
 func GetSubmitList(problemIdentity, userIdentity string, status int) *gorm.DB {
-	tx := DB.Model(&SubmitBasic{}).Preload("ProblemBasic").Preload("UserBasic")
+	tx := DB.Model(&SubmitBasic{}).Preload("ProblemBasic", func(db *gorm.DB) *gorm.DB {
+		return db.Omit("content")
+	}).Preload("UserBasic")
 	if problemIdentity != "" {
 		tx.Where("problem_identity = ?", problemIdentity)
 	}

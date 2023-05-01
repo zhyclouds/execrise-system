@@ -39,7 +39,7 @@ func GetSubmitList(c *gin.Context) {
 	userIdentity := c.Query("user_identity")
 	status, _ := strconv.Atoi(c.Query("status"))
 	tx := models.GetSubmitList(problemIdentity, userIdentity, status)
-	err = tx.Count(&count).Omit("content").Limit(size).Offset(page).Find(&list).Error
+	err = tx.Count(&count).Limit(size).Offset(page).Find(&list).Error
 	if err != nil {
 		log.Println("GetSubmitList Error:", err)
 		c.JSON(http.StatusOK, gin.H{
