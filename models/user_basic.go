@@ -2,7 +2,7 @@ package models
 
 import "gorm.io/gorm"
 
-type User struct {
+type UserBasic struct {
 	gorm.Model
 	Identity string `gorm:"column:identity" json:"identity"` // 唯一标识
 	Name     string `gorm:"column:name" json:"name"`         // 用户名
@@ -11,6 +11,6 @@ type User struct {
 	Mail     string `gorm:"column:mail" json:"mail"`         // 邮箱
 }
 
-func (u *User) TableName() string {
-	return "user"
+func (u *UserBasic) TableName() string {
+	return "user_basic"
 }

@@ -34,7 +34,7 @@ func GetProblemList(c *gin.Context) {
 	keyword := c.Query("keyword")
 
 	tx := models.GetProblemList(keyword)
-	list := make([]*models.Problem, size)
+	list := make([]*models.ProblemBasic, size)
 	err = tx.Count(&count).Omit("content").Limit(size).Offset(page).Find(&list).Error
 	if err != nil {
 		log.Println("GetProblemList Error:", err)

@@ -2,7 +2,7 @@ package models
 
 import "gorm.io/gorm"
 
-type Submit struct {
+type SubmitBasic struct {
 	gorm.Model
 	Identity        string `gorm:"column:identity" json:"identity"`                 // 提交标识
 	ProblemIdentity string `gorm:"column:problem_identity" json:"problem_identity"` // 题目标识
@@ -10,6 +10,6 @@ type Submit struct {
 	Path            string `gorm:"column:path" json:"path"`                         // 提交路径
 }
 
-func (s *Submit) TableName() string {
-	return "submit"
+func (s *SubmitBasic) TableName() string {
+	return "submit_basic"
 }
