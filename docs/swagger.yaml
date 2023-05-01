@@ -43,6 +43,25 @@ paths:
       summary: 获取题目列表
       tags:
       - 公共方法
+  /rank-list:
+    get:
+      parameters:
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: size
+        in: query
+        name: size
+        type: integer
+      responses:
+        "200":
+          description: '{"code":200,"data":""}'
+          schema:
+            type: string
+      summary: 用户排行榜
+      tags:
+      - 公共方法
   /register:
     post:
       parameters:

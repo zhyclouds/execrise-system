@@ -22,6 +22,7 @@ func Router() *gin.Engine {
 	r.POST("/login", service.Login)
 	r.POST("/send-code", service.SendCode)
 	r.POST("/register", service.Register)
+	r.GET("/rank-list", service.GetRankList)
 
 	// 提交
 	r.GET("/submit-list", service.GetSubmitList)
