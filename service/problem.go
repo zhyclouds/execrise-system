@@ -17,6 +17,7 @@ import (
 // @param page query int false "page"
 // @param size query int false "size"
 // @param keyword query string false "keyword"
+// @param category_identity query string false "category_identity"
 // @Success 200 {string} json "{"code":200,"data":""}"
 // @Router /problem-list [get]
 func GetProblemList(c *gin.Context) {
@@ -34,8 +35,9 @@ func GetProblemList(c *gin.Context) {
 	var count int64
 
 	keyword := c.Query("keyword")
+	categoryIdentity := c.Query("category_identity")
 
-	tx := models.GetProblemList(keyword)
+	tx := models.GetProblemList(keyword, categoryIdentity)
 	list := make([]*models.ProblemBasic, size)
 	err = tx.Count(&count).Omit("content").Limit(size).Offset(page).Find(&list).Error
 	if err != nil {

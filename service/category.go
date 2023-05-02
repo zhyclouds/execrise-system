@@ -89,7 +89,7 @@ func AddCategory(c *gin.Context) {
 // @Tags 管理员私有方法
 // @Summary 分类修改
 // @param authorization header string true "authorization"
-// @param identity header string true "identity"
+// @param identity formData string true "identity"
 // @param name formData string true "name"
 // @param parentId formData string false "parentId"
 // @Success 200 {string} json "{"code":200,"data":""}"

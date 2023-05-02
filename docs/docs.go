@@ -250,6 +250,12 @@ const docTemplate = `{
                         "description": "keyword",
                         "name": "keyword",
                         "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "category_identity",
+                        "name": "category_identity",
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -434,7 +440,7 @@ const docTemplate = `{
                         "type": "string",
                         "description": "identity",
                         "name": "identity",
-                        "in": "header",
+                        "in": "formData",
                         "required": true
                     },
                     {

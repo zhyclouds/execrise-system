@@ -155,6 +155,10 @@ paths:
         in: query
         name: keyword
         type: string
+      - description: category_identity
+        in: query
+        name: category_identity
+        type: string
       responses:
         "200":
           description: '{"code":200,"data":""}'
@@ -272,7 +276,7 @@ paths:
         required: true
         type: string
       - description: identity
-        in: header
+        in: formData
         name: identity
         required: true
         type: string
