@@ -11,6 +11,7 @@ type UserBasic struct {
 	Mail             string `gorm:"column:mail" json:"mail"`                             // 邮箱
 	FinishProblemNum int64  `gorm:"column:finish_problem_num" json:"finish_problem_num"` // 已完成题目数量
 	SubmitNum        int64  `gorm:"column:submit_num" json:"submit_num"`                 // 提交次数
+	IsAdmin          int    `gorm:"column:is_admin" json:"is_admin"`                     // 是否为管理员
 }
 
 func (u *UserBasic) TableName() string {

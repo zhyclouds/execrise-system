@@ -2,6 +2,7 @@ package router
 
 import (
 	_ "execrise-system/docs"
+	"execrise-system/middlewares"
 	"execrise-system/service"
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"
@@ -26,6 +27,9 @@ func Router() *gin.Engine {
 
 	// 提交
 	r.GET("/submit-list", service.GetSubmitList)
+
+	// 管理员私有方法
+	r.POST("/add-problem", middlewares.AuthAdminCheck(), service.AddProblem)
 
 	return r
 }

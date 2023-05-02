@@ -1,6 +1,52 @@
 info:
   contact: {}
 paths:
+  /add-problem:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      - description: title
+        in: formData
+        name: title
+        required: true
+        type: string
+      - description: content
+        in: formData
+        name: content
+        required: true
+        type: string
+      - description: max_runtime
+        in: formData
+        name: max_runtime
+        required: true
+        type: string
+      - description: max_mem
+        in: formData
+        name: max_mem
+        required: true
+        type: string
+      - description: category_ids
+        in: formData
+        name: category_ids
+        required: true
+        type: string
+      - description: test_cases
+        in: formData
+        name: test_cases
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":200,"data":""}'
+          schema:
+            type: string
+      summary: 创建问题
+      tags:
+      - 管理员私有方法
   /login:
     post:
       parameters:

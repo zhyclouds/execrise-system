@@ -15,6 +15,7 @@ import (
 type UserClaims struct {
 	Identity string `json:"identity"`
 	Name     string `json:"name"`
+	IsAdmin  int    `json:"is_admin"`
 	jwt.StandardClaims
 }
 
@@ -28,10 +29,11 @@ var myKey = []byte("execrise-system")
 
 // GenerateToken
 // 生成 token
-func GenerateToken(identity, name string) (string, error) {
+func GenerateToken(identity, name string, isAdmin int) (string, error) {
 	userClaim := UserClaims{
 		Identity:       identity,
 		Name:           name,
+		IsAdmin:        isAdmin,
 		StandardClaims: jwt.StandardClaims{},
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, userClaim)
