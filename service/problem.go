@@ -55,7 +55,7 @@ func GetProblemList(c *gin.Context) {
 // AddProblem
 // @Tags 管理员私有方法
 // @Summary 创建问题
-// @param token header string true "token"
+// @param authorization header string true "authorization"
 // @param title formData string true "title"
 // @param content formData string true "content"
 // @param max_runtime formData string true "max_runtime"
