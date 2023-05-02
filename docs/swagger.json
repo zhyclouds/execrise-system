@@ -85,14 +85,14 @@
                         "required": true
                     },
                     {
-                        "type": "string",
+                        "type": "array",
                         "description": "category_ids",
                         "name": "category_ids",
                         "in": "formData",
                         "required": true
                     },
                     {
-                        "type": "string",
+                        "type": "array",
                         "description": "test_cases",
                         "name": "test_cases",
                         "in": "formData",

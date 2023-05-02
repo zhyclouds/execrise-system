@@ -62,8 +62,8 @@ func GetProblemList(c *gin.Context) {
 // @param content formData string true "content"
 // @param max_runtime formData string true "max_runtime"
 // @param max_mem formData string true "max_mem"
-// @param category_ids formData string true "category_ids"
-// @param test_cases formData string true "test_cases"
+// @param category_ids formData array true "category_ids"
+// @param test_cases formData array true "test_cases"
 // @Success 200 {string} json "{"code":200,"data":""}"
 // @Router /add-problem [post]
 func AddProblem(c *gin.Context) {
@@ -99,7 +99,8 @@ func AddProblem(c *gin.Context) {
 			CategoryId: uint(categoryId),
 		})
 	}
-	// TODO: 处理分类
+	// 处理分类
+	data.ProblemCategories = categoryBasics
 
 	// 处理测试用例
 	testCaseBasics := make([]*models.TestCase, 0)

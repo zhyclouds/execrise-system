@@ -58,12 +58,12 @@ paths:
         in: formData
         name: category_ids
         required: true
-        type: string
+        type: array
       - description: test_cases
         in: formData
         name: test_cases
         required: true
-        type: string
+        type: array
       responses:
         "200":
           description: '{"code":200,"data":""}'
