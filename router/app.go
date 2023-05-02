@@ -31,5 +31,7 @@ func Router() *gin.Engine {
 	// 管理员私有方法
 	r.POST("/add-problem", middlewares.AuthAdminCheck(), service.AddProblem)
 
+	// 分类列表
+	r.GET("/category-list", middlewares.AuthAdminCheck(), service.GetCategoryList)
 	return r
 }

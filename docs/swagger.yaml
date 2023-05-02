@@ -47,6 +47,34 @@ paths:
       summary: 创建问题
       tags:
       - 管理员私有方法
+  /category-list:
+    get:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: size
+        in: query
+        name: size
+        type: integer
+      - description: keyword
+        in: query
+        name: keyword
+        type: string
+      responses:
+        "200":
+          description: '{"code":200,"data":""}'
+          schema:
+            type: string
+      summary: 获取分类列表
+      tags:
+      - 管理员私有方法
   /login:
     post:
       parameters:
